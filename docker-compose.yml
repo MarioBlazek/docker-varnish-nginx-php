@@ -5,7 +5,7 @@ services:
     container_name: marek_php
     build: ./docker-config/php
     volumes:
-      - .:/workspace
+      - ./code:/workspace
 
   nginx:
     container_name: marek_nginx
@@ -17,9 +17,19 @@ services:
     volumes:
       - ./docker-config/nginx/bin:/scripts:ro
       - ./docker-config/nginx/conf:/etc/nginx/conf.d
-      - .:/workspace
+      - ./code:/workspace
     command: /bin/sh /scripts/run.sh
     ports:
       - 5001:80
     environment:
       FPM_BACKEND: php
+
+  varnish:
+    container_name: marek_varnish
+    depends_on:
+      - nginx
+    build: ./docker-config/varnish
+    links:
+      - nginx
+    ports:
+      - 5002:6081

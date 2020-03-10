@@ -10,6 +10,7 @@ RUN /composer.sh
 RUN apt-get update && apt-get install -y \
 	libzip-dev \
 	wget \
+	unzip \
     && docker-php-ext-configure zip \
     && docker-php-ext-install -j$(nproc) zip
 
