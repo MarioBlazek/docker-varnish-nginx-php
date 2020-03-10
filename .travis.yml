@@ -17,5 +17,4 @@ before_install:
 script:
     - docker-compose up -d
     - docker-compose ps
-    - curl http://localhost:5002 | grep -c -i 'Lerdorf'
-    - cat /etc/hosts
+    - curl http://localhost:5002
