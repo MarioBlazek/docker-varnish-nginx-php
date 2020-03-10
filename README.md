@@ -20,3 +20,11 @@ Entering Docker containers:
 * PHP - `docker exec -it marek_php /bin/bash`
 * nginx - `docker exec -it marek_nginx /bin/bash`
 * Varnish - `docker exec -it marek_varnish /bin/bash`
+
+Install Symfony:
+* enter PHP container
+* switch to `/workspace` directory
+* remove the `php` directory
+* execute `symfony new php --no-git` command
+* navigate to `http://localhost:5001/` or `http://localhost:5002/` and you should see a Symfony welcome page
+* enter Varnish container and clear cache if necessary `varnishadm ban req.http.host == localhost:5002`
