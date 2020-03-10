@@ -17,5 +17,5 @@ before_install:
 script:
     - docker-compose up -d
     - docker-compose ps
-    - curl http://localhost:5002 || true
+    - curl http://localhost:5005 || true
     - cat /etc/hosts
