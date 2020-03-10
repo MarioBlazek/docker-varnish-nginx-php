@@ -28,3 +28,8 @@ Install Symfony:
 * execute `symfony new php --no-git` command
 * navigate to `http://localhost:5001/` or `http://localhost:5002/` and you should see a Symfony welcome page
 * enter Varnish container and clear cache if necessary `varnishadm ban req.http.host == localhost:5002`
+
+To remove the containers enter:
+```bash
+docker container rm marek_varnish marek_php marek_nginx
+```
