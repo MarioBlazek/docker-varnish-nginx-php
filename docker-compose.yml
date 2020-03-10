@@ -20,7 +20,7 @@ services:
       - ./code:/workspace
     command: /bin/sh /scripts/run.sh
     ports:
-      - 81:80
+      - 5001:80
     environment:
       FPM_BACKEND: php
 
@@ -32,4 +32,4 @@ services:
     links:
       - nginx
     ports:
-      - 80:6081
+      - 5002:6081
