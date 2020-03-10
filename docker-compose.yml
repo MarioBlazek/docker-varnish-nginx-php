@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  php:
+    container_name: marek_php
+    build: ./docker-config/php
+    volumes:
+      - .:/workspace
+
+  nginx:
+    container_name: marek_nginx
+    depends_on:
+      - php
+    image: nginx:latest
+    links:
+      - php
+    volumes:
+      - ./docker-config/nginx/bin:/scripts:ro
+      - ./docker-config/nginx/conf:/etc/nginx/conf.d
+      - .:/workspace
+    command: /bin/sh /scripts/run.sh
+    ports:
+      - 5001:80
+    environment:
+      FPM_BACKEND: php
