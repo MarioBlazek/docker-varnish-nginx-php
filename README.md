@@ -1,5 +1,7 @@
 # Simple Docker config for nginx, Varnish and PHP
 
+[![Build Status](https://img.shields.io/travis/MarioBlazek/docker-varnish-nginx-php.svg?style=flat-square)](https://travis-ci.org/MarioBlazek/docker-varnish-nginx-php)
+
 This is a simple Docker setup to play around PHP and Varnish.
 
 To power up the Docker:
